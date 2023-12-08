@@ -1,3 +1,7 @@
+# dataset
+*.npy
+*.csv
+
 # project related
 
 logs/
