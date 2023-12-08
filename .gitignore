@@ -1,6 +1,7 @@
 # dataset
 *.npy
 *.csv
+*.pkl
 
 # project related
 
