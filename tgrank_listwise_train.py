@@ -118,6 +118,8 @@ def run(args):
     optimizer = torch.optim.Adam(net.parameters(), lr=args.lr)
 
     # train, val and test
+    num_epoch = args.num_epochs
+    print("num_epoch = ", num_epoch)
 
     for epoch in range(args.num_epochs):
 

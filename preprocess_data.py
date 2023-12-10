@@ -58,14 +58,17 @@ def reindex(df, bipartite=True):
   return new_df
 
 
-def run(data_dir, data_name, bipartite=True, num_node_features=172):
-  Path(data_dir).mkdir(parents=True, exist_ok=True)
-  PATH = os.path.join(data_dir, '{}.csv'.format(data_name))
+def run(data_dir, data_name, bipartite=False, num_node_features=172):
+  # Path(data_dir).mkdir(parents=True, exist_ok=True)
+  PATHdf = os.path.join(data_dir, 'ml_{}.pkl'.format(data_name))
+  PATHfeat = os.path.join(data_dir, 'ml_{}_edge.pkl'.format(data_name))
   OUT_DF = os.path.join(data_dir, 'ml_{}.csv'.format(data_name))
   OUT_FEAT = os.path.join(data_dir, 'ml_{}.npy'.format(data_name))
   OUT_NODE_FEAT = os.path.join(data_dir, 'ml_{}_node.npy'.format(data_name))
 
-  df, feat = preprocess(PATH)
+  df = pd.read_pickle(PATHdf)
+  feat = pd.read_pickle(PATHfeat)
+  # df, feat = preprocess(PATH)
   new_df = reindex(df, bipartite)
 
   empty = np.zeros(feat.shape[1])[np.newaxis, :]

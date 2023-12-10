@@ -18,7 +18,12 @@ def pointwise_training_epoch(net, optimizer, train_data, full_data, node_feature
 	net.train()
 	batch_loss = []
 	train_start_time = time.time()
+
+	print(num_batch)
+
 	for batch_idx in (tqdm(range(0, num_batch)) if verbose else range(0, num_batch)):
+		print("batch_idx = ", batch_idx)
+
 		optimizer.zero_grad()
 		start_idx = batch_idx * batch_size
 		end_idx = min(num_instance, start_idx + batch_size)
@@ -73,7 +78,12 @@ def listwise_training_epoch(net, optimizer, train_data, full_data, node_features
 	net.train()
 	batch_loss = []
 	train_start_time = time.time()
+
+	# print(num_batch)
+
 	for batch_idx in (tqdm(range(0, num_batch)) if verbose else range(0, num_batch)):
+		# print("batch_idx = ", batch_idx)
+
 		optimizer.zero_grad()
 		start_idx = batch_idx * batch_size
 		end_idx = min(num_instance, start_idx + batch_size)

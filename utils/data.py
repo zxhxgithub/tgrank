@@ -53,10 +53,13 @@ def get_data(dataset_directory, dataset_name, different_new_nodes_between_val_an
 
 	val_time, test_time = list(np.quantile(graph_df.ts, [0.70, 0.85]))
 
+
+
 	sources = graph_df.u.values
 	destinations = graph_df.i.values
 	edge_idxs = graph_df.idx.values
 	labels = graph_df.label.values
+	# labels = np.ones(len(edge_idxs))
 	timestamps = graph_df.ts.values
 
 	full_data = Data(sources, destinations, timestamps, edge_idxs, labels)
